@@ -11,11 +11,23 @@ public class Item : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         rig.AddForce(new Vector3(ItemVelocity, ItemVelocity, 0f));
+        Destroy(gameObject, 3f);
     }
 
     
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.Upgrade();
+
+            Destroy(gameObject);
+        }
     }
 }

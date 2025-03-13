@@ -7,7 +7,7 @@ public class Monster : MonoBehaviour
     public Transform ms1;
     public Transform ms2;
     public GameObject bullet;
-
+    public GameObject item;
 
     void Start()
     {
@@ -35,5 +35,17 @@ public class Monster : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    private void OnDestroy()
+    {
+        int ran = Random.Range(1, 11);
+
+        if (ran > 5)
+            Instantiate(item, transform.position, Quaternion.identity);
+        else
+            return;
+    }
+
+
 
 }

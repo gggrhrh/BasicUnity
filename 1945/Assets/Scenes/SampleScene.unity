@@ -647,7 +647,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: fe1fa70fc917e204aa2c3fdcad1a7f35, type: 3}
   m_Resource: {fileID: 8300000, guid: fe1fa70fc917e204aa2c3fdcad1a7f35, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -991,7 +991,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  bullet: {fileID: 3173941842260762414, guid: ce1677f3170c3c249ad4fe3d01701d1e, type: 3}
+  bullet:
+  - {fileID: 3173941842260762414, guid: ce1677f3170c3c249ad4fe3d01701d1e, type: 3}
+  - {fileID: 3173941842260762414, guid: 014c20e8a8553624282fbcda23806436, type: 3}
+  - {fileID: 3173941842260762414, guid: 6314c9d249e22174cb05e2849a93be15, type: 3}
+  - {fileID: 3173941842260762414, guid: 729a16c04e5d5fe49b26de1e0193e15b, type: 3}
   pos: {fileID: 454554386}
 --- !u!61 &1092945858
 BoxCollider2D:

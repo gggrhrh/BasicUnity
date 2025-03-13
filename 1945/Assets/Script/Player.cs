@@ -7,8 +7,10 @@ public class Player : MonoBehaviour
 
     Animator ani; //애니메이터를 가져올 변수
 
-    public GameObject bullet;
+    public GameObject[] bullet;
     public Transform pos = null;
+
+    int Weapon = 0;
 
     void Start()
     {
@@ -46,7 +48,7 @@ public class Player : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(bullet, pos.position, Quaternion.identity);
+            ShootBullet(Weapon);
         }
 
 
@@ -62,4 +64,17 @@ public class Player : MonoBehaviour
 
 
     }
+
+    public void ShootBullet(int weapon)
+    {
+        Instantiate(bullet[weapon], pos.position, Quaternion.identity);
+    }
+
+    public void Upgrade()
+    {
+        Weapon++;
+        if (Weapon > 3)
+            Weapon = 3;
+    }
+
 }
