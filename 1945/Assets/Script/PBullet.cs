@@ -34,6 +34,19 @@ public class PBullet : MonoBehaviour
             Destroy(gameObject);
 
         }
+
+        if(collision.CompareTag("Boss"))
+        {
+            //이펙트 생성 및 삭제
+            GameObject go = Instantiate(Effect, transform.position, Quaternion.identity);
+
+            Destroy(go, 1f);
+
+
+            Destroy(gameObject);
+
+        }
+
     }
 
 }
