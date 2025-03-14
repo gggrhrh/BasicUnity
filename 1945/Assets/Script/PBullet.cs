@@ -22,7 +22,12 @@ public class PBullet : MonoBehaviour
         {
             //이펙트 생성 및 삭제
             GameObject go = Instantiate(Effect, transform.position, Quaternion.identity);
+            
             Destroy(go, 1f);
+
+            //몬스터 삭제
+            collision.gameObject.GetComponent<Monster>().Damage(10);
+
 
             Destroy(collision.gameObject);
 

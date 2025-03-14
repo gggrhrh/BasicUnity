@@ -9,15 +9,17 @@ public class Player : MonoBehaviour
 
     public GameObject[] bullet;
     public Transform pos = null;
-
-    int Weapon = 0;
+    
+    int power = 0;
+    [SerializeField]
+    private GameObject PowerUp;
 
     void Start()
     {
         ani = GetComponent<Animator>();
     }
 
-    
+
     void Update()
     {
         //방향키에따른 움직임
@@ -37,7 +39,7 @@ public class Player : MonoBehaviour
             ani.SetBool("right", false);
 
 
-        if(Input.GetAxis("Vertical")>=0.5f)
+        if (Input.GetAxis("Vertical") >= 0.5f)
         {
             ani.SetBool("up", true);
         }
@@ -46,14 +48,14 @@ public class Player : MonoBehaviour
             ani.SetBool("up", false);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            ShootBullet(Weapon);
+            ShootBullet(power);
         }
 
 
 
-            transform.Translate(moveX, moveY, 0);
+        transform.Translate(moveX, moveY, 0);
 
         //캐릭터의 월드 좌표를 뷰포트 좌표계로 변환해준다.
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
@@ -70,11 +72,22 @@ public class Player : MonoBehaviour
         Instantiate(bullet[weapon], pos.position, Quaternion.identity);
     }
 
-    public void Upgrade()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Weapon++;
-        if (Weapon > 3)
-            Weapon = 3;
+        if (collision.gameObject.CompareTag("Item"))
+        {
+            power++;
+            if (power > 3)
+                power = 3;
+            else
+            {
+                GameObject go = Instantiate(PowerUp, collision.transform.position, Quaternion.identity);
+                Destroy(go, 1);
+            }
+
+            Destroy(collision.gameObject);
+        }
     }
 
 }

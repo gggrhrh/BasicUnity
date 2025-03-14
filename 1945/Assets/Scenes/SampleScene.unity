@@ -997,6 +997,7 @@ MonoBehaviour:
   - {fileID: 3173941842260762414, guid: 6314c9d249e22174cb05e2849a93be15, type: 3}
   - {fileID: 3173941842260762414, guid: 729a16c04e5d5fe49b26de1e0193e15b, type: 3}
   pos: {fileID: 454554386}
+  PowerUp: {fileID: 928754146340999868, guid: 197041c1aa0de8a4980f5d246c687754, type: 3}
 --- !u!61 &1092945858
 BoxCollider2D:
   m_ObjectHideFlags: 0

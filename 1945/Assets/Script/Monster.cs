@@ -36,16 +36,15 @@ public class Monster : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnDestroy()
+    public void Damage(int attack)
     {
-        int ran = Random.Range(1, 11);
-
-        if (ran > 5)
-            Instantiate(item, transform.position, Quaternion.identity);
-        else
-            return;
+        ItemDrop();
+        Destroy(gameObject);
     }
 
-
+    public void ItemDrop()
+    {
+        Instantiate(item, transform.position, Quaternion.identity);
+    }
 
 }
