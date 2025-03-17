@@ -176,4 +176,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 4
+  Attack: 80
   Effect: {fileID: 4756421791994801896, guid: 18ecbf750fd094d42a714792defa0551, type: 3}

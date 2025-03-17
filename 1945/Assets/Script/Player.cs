@@ -9,10 +9,15 @@ public class Player : MonoBehaviour
 
     public GameObject[] bullet;
     public Transform pos = null;
-    
+
     int power = 0;
     [SerializeField]
     private GameObject PowerUp;
+
+    //·¹ÀÌÀú
+    public GameObject Lazer;
+    public float gValue;
+
 
     void Start()
     {
@@ -51,6 +56,28 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ShootBullet(power);
+        }
+
+        else if (Input.GetKey(KeyCode.Space))
+        {
+
+            gValue += Time.deltaTime;
+
+            if (gValue >= 1)
+            {
+
+                GameObject go = Instantiate(Lazer, pos.position, Quaternion.identity);
+                Destroy(go, 2);
+                gValue = 0;
+            }
+
+        }
+        else
+        {
+            gValue -= Time.deltaTime;
+
+            if (gValue <= 0)
+                gValue = 0;
         }
 
 

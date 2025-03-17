@@ -4,6 +4,8 @@ using UnityEngine.UIElements;
 
 public class Boss : MonoBehaviour
 {
+    public int HP = 3000;
+
     int flag = 1;
     int speed = 2;
 
@@ -14,8 +16,14 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
+        Invoke("Hide", 2);
         StartCoroutine(BossMissaile());
         StartCoroutine(CircleFire());
+    }
+
+    void Hide()
+    {
+        GameObject.Find("TextBossWarning").SetActive(false);
     }
 
     IEnumerator BossMissaile()
@@ -76,4 +84,14 @@ public class Boss : MonoBehaviour
         transform.Translate(flag * Vector2.right * Time.deltaTime * speed);
     }
 
+    public void Damage(int attack)
+    {
+        HP -= attack;
+
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+    }
 }

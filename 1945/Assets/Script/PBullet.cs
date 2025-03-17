@@ -4,6 +4,8 @@ public class PBullet : MonoBehaviour
 {
     public float Speed = 4.0f;
 
+    public int Attack = 10;
+
     public GameObject Effect;
 
     void Update()
@@ -26,10 +28,7 @@ public class PBullet : MonoBehaviour
             Destroy(go, 1f);
 
             //몬스터 삭제
-            collision.gameObject.GetComponent<Monster>().Damage(10);
-
-
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Monster>().Damage(Attack);
 
             Destroy(gameObject);
 
@@ -42,6 +41,7 @@ public class PBullet : MonoBehaviour
 
             Destroy(go, 1f);
 
+            collision.gameObject.GetComponent<Boss>().Damage(Attack);
 
             Destroy(gameObject);
 

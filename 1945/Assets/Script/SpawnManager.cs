@@ -5,6 +5,8 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject Monster;
     public GameObject Monster2;
+    public GameObject Boss;
+    
     public float ss = -2;   //몬스터 생성 x값 처음
     public float es = 2;    //몬스터 생성 x값 끝
     public float StartTime = 1;
@@ -12,6 +14,16 @@ public class SpawnManager : MonoBehaviour
 
     bool swi = true;
     bool swi2 = true;
+
+    [SerializeField]
+    GameObject textBossWarning;
+
+    private void Awake()
+    {
+        textBossWarning.SetActive(false);
+    }
+
+
 
     void Start()
     {
@@ -27,7 +39,7 @@ public class SpawnManager : MonoBehaviour
 
             float x = Random.Range(ss, es);
 
-            Instantiate(Monster, new Vector2(x, transform.position.y), Quaternion.identity);
+            Instantiate(Monster, new Vector2(x, transform.position.y), Quaternion.identity);         
 
         }
     }
@@ -59,8 +71,11 @@ public class SpawnManager : MonoBehaviour
     {
         swi2 = false;
         StopCoroutine("RandomSpawn2");
-
+        textBossWarning.SetActive(true);
         //보스 나오기
+        Vector3 pos = new Vector3(0, 3, 0);
+
+        GameObject go = Instantiate(Boss, pos, Quaternion.identity);
     }
 
 }
