@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     public GameObject Lazer;
     public float gValue;
 
+    public Image Gagebar;
 
     void Start()
     {
@@ -63,6 +65,8 @@ public class Player : MonoBehaviour
 
             gValue += Time.deltaTime;
 
+            Gagebar.fillAmount = gValue;
+
             if (gValue >= 1)
             {
 
@@ -78,6 +82,8 @@ public class Player : MonoBehaviour
 
             if (gValue <= 0)
                 gValue = 0;
+
+            Gagebar.fillAmount = gValue;
         }
 
 
