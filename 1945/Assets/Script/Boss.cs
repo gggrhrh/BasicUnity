@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,6 +14,12 @@ public class Boss : MonoBehaviour
     public GameObject mb2;
     public Transform pos1;
     public Transform pos2;
+
+    private void Awake()
+    {
+        CameraShake.instance.SetImpulseSource(gameObject.GetComponent<CinemachineImpulseSource>());
+    }
+
 
     void Start()
     {
