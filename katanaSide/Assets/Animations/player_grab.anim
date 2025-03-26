@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: idletorun
+  m_Name: player_grab
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 171533859, guid: e5cc5273e415d8b4db7fa30a57803dfa, type: 3}
+      value: {fileID: 574371785, guid: 495d8883158981d46868c40a08986452, type: 3}
     - time: 0.083333336
-      value: {fileID: 1546855157, guid: e5cc5273e415d8b4db7fa30a57803dfa, type: 3}
+      value: {fileID: 2138903113, guid: 495d8883158981d46868c40a08986452, type: 3}
     - time: 0.16666667
-      value: {fileID: -1661158118, guid: e5cc5273e415d8b4db7fa30a57803dfa, type: 3}
+      value: {fileID: 730914109, guid: 495d8883158981d46868c40a08986452, type: 3}
     - time: 0.25
-      value: {fileID: 481258592, guid: e5cc5273e415d8b4db7fa30a57803dfa, type: 3}
+      value: {fileID: -1594409392, guid: 495d8883158981d46868c40a08986452, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,10 +50,10 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 171533859, guid: e5cc5273e415d8b4db7fa30a57803dfa, type: 3}
-    - {fileID: 1546855157, guid: e5cc5273e415d8b4db7fa30a57803dfa, type: 3}
-    - {fileID: -1661158118, guid: e5cc5273e415d8b4db7fa30a57803dfa, type: 3}
-    - {fileID: 481258592, guid: e5cc5273e415d8b4db7fa30a57803dfa, type: 3}
+    - {fileID: 574371785, guid: 495d8883158981d46868c40a08986452, type: 3}
+    - {fileID: 2138903113, guid: 495d8883158981d46868c40a08986452, type: 3}
+    - {fileID: 730914109, guid: 495d8883158981d46868c40a08986452, type: 3}
+    - {fileID: -1594409392, guid: 495d8883158981d46868c40a08986452, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -78,18 +78,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: RunShadow
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
-    functionName: RandDust
-    data: 
-    objectReferenceParameter: {fileID: 8885703813509753172, guid: db7dbaaeb9f051d4ab1dc28cf83e0093, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
