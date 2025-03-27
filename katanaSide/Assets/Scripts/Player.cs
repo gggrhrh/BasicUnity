@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
     public bool isWallJump;
     float isRight = 1;
 
+    public GameObject walldust;
+
     void Start()
     {
         pAnimator = GetComponent<Animator>();
@@ -140,7 +142,10 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W))
             {
                 isWallJump = true;
+
                 //벽점프 먼지
+                GameObject go = Instantiate(walldust, transform.position + new Vector3(0.8f * isRight, 0, 0), Quaternion.identity);
+                go.GetComponent<SpriteRenderer>().flipX = sp.flipX;
 
                 Invoke("FreezeX", 0.3f);
 
@@ -176,6 +181,18 @@ public class Player : MonoBehaviour
                     pAnimator.SetBool("Jump", false);
                 }
             }
+            else
+            {
+                if(!isWall)
+                {
+                    pAnimator.SetBool("Jump", true);
+                }
+                else
+                {
+                    pAnimator.SetBool("Grab", true);    
+                }
+            }
+
         }
 
 
@@ -234,7 +251,16 @@ public class Player : MonoBehaviour
 
     public void JumpDust()
     {
-        Instantiate(Jdust, transform.position + new Vector3(0.1f, 0, 0), Quaternion.identity);
+        //벽에 붙어있지 않으면
+        if(!isWall)
+        {
+            Instantiate(Jdust, transform.position + new Vector3(0.1f, 0, 0), Quaternion.identity);
+        }
+        //else
+        //{
+        //    Instantiate(walldust, transform.position, Quaternion.identity);
+        //}
+
     }
 
     private void OnDrawGizmos()
