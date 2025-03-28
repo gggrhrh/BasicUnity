@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 693300168815696539}
   - component: {fileID: 4428182846066426032}
   - component: {fileID: 3849567592790148064}
+  - component: {fileID: 3667293431843546901}
   m_Layer: 0
   m_Name: MagicMissile
   m_TagString: Untagged
@@ -174,3 +175,30 @@ MonoBehaviour:
   lifeTime: 3
   damage: 10
   direction: {x: -1, y: 0}
+--- !u!50 &3667293431843546901
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9177612197985146899}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

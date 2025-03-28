@@ -15,7 +15,7 @@ public class Slash : MonoBehaviour
 
     public Vector3 direction = Vector3.right;
 
-    
+
     void Start()
     {
         p = GameObject.FindGameObjectWithTag("Player");
@@ -34,7 +34,7 @@ public class Slash : MonoBehaviour
 
     }
 
-    
+
     void Update()
     {
         //회전적용
@@ -46,6 +46,24 @@ public class Slash : MonoBehaviour
     public void Des()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<EnemyMissile>() != null)
+        {
+            EnemyMissile missile = collision.gameObject.GetComponent<EnemyMissile>();
+            SpriteRenderer missileSprite = collision.gameObject.GetComponent<SpriteRenderer>();
+
+            //현재 방향의 정반대 방향으로 설정
+            Vector2 reverseDir = -missile.GetDirection();
+
+            //미사일의 새로운 방향
+            missile.SetDirection(reverseDir);
+
+            //스프라이트 변경
+            missileSprite.flipX = !missileSprite.flipX;
+        }
     }
 
 

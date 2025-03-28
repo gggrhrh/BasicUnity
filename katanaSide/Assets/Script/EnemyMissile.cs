@@ -5,7 +5,7 @@ public class EnemyMissile : MonoBehaviour
     public float speed = 5f;
     public float lifeTime = 3f;
     public int damage = 10;
-    public Vector2 direction;
+    private Vector2 direction;
 
     void Start()
     {
@@ -15,6 +15,11 @@ public class EnemyMissile : MonoBehaviour
     public void SetDirection(Vector2 dir)
     {
         direction = dir;
+    }
+
+    public Vector2 GetDirection()
+    {
+        return direction;
     }
 
 

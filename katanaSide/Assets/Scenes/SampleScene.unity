@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 276632916}
   - component: {fileID: 276632918}
   - component: {fileID: 276632917}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ground (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 376702903}
   - component: {fileID: 376702904}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 527434699}
   - component: {fileID: 527434701}
   - component: {fileID: 527434700}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 532577301}
   - component: {fileID: 532577302}
   - component: {fileID: 532577303}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: LineStep (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 780387227}
   - component: {fileID: 780387229}
   - component: {fileID: 780387228}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1645,7 +1645,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 1933099713}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -1694,7 +1694,7 @@ GameObject:
   - component: {fileID: 1043323781}
   - component: {fileID: 1043323783}
   - component: {fileID: 1043323782}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1828,7 +1828,7 @@ GameObject:
   - component: {fileID: 1048406358}
   - component: {fileID: 1048406360}
   - component: {fileID: 1048406359}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ground (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1962,7 +1962,7 @@ GameObject:
   - component: {fileID: 1144864673}
   - component: {fileID: 1144864674}
   - component: {fileID: 1144864675}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: LineStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2050,7 +2050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1222549293}
   - component: {fileID: 1222549294}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2801,7 +2801,7 @@ MonoBehaviour:
   wallchkDistance: 0.5
   wLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   slidingSpeed: 0.8
   wallJumpPower: 10
   isWallJump: 0
@@ -2951,7 +2951,7 @@ GameObject:
   - component: {fileID: 2100318783}
   - component: {fileID: 2100318785}
   - component: {fileID: 2100318784}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
