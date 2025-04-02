@@ -25,7 +25,9 @@ public class EnemyMissile : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        float timeScale = TimeController.Instance.GetTimeScale();
+        
+        transform.Translate(direction * speed * Time.deltaTime * timeScale);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,5 +37,12 @@ public class EnemyMissile : MonoBehaviour
             Destroy(gameObject);
 
         }
+        else if (other.CompareTag("Enemy"))
+        {
+            ShootingEnemy enemy = other.GetComponent<ShootingEnemy>();
+            if (enemy != null)
+                enemy.PlayDeathAnimation();
+        }
+
     }
 }

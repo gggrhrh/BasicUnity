@@ -64,6 +64,16 @@ public class Slash : MonoBehaviour
             //스프라이트 변경
             missileSprite.flipX = !missileSprite.flipX;
         }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            //적 캐릭터의 사망 애니메이션 재생
+            ShootingEnemy enemy = collision.gameObject.GetComponent<ShootingEnemy>();
+
+            if (enemy != null)
+                enemy.PlayDeathAnimation();
+        }
+
     }
 
 

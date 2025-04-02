@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class Player : MonoBehaviour
 
     //히트 이펙트
     public GameObject hit_lazer;
+
+
+
 
     bool bJump = false;
     Animator pAnimator;
@@ -106,18 +110,24 @@ public class Player : MonoBehaviour
             Instantiate(hit_lazer, transform.position, Quaternion.identity);
 
         }
-
     }
 
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            //슬로우모션
+            TimeController.Instance.SetSlowMotion(true);
+        }
+
 
         if (!isWallJump)
         {
             KeyInput();
             Move();
         }
+
 
         //벽인지 체크
         isWall = Physics2D.Raycast(wallChk.position, Vector2.right * isRight, wallchkDistance, wLayer);
@@ -168,44 +178,64 @@ public class Player : MonoBehaviour
         isWallJump = false;
     }
 
-    private float GROUND_CHECK_DISTANCE = 0.7f;
 
     private void FixedUpdate()
     {
-        Debug.DrawRay(pRig2D.position, Vector3.down, new Color(0, GROUND_CHECK_DISTANCE, 0));
+        Debug.DrawRay(pRig2D.position, Vector3.down, new Color(0, 0.7f, 0));
 
         //레이캐스트로 땅체크 
-        RaycastHit2D rayHit = Physics2D.Raycast(pRig2D.position, Vector3.down, GROUND_CHECK_DISTANCE, LayerMask.GetMask("Ground"));
+        RaycastHit2D rayHit = Physics2D.Raycast(pRig2D.position, Vector3.down, 0.7f, LayerMask.GetMask("Ground"));
 
-        CheckGroundedState(rayHit);
-    }
-
-
-    void CheckGroundedState(RaycastHit2D rayHit)
-    {
-
-        bool isGrounded = rayHit.collider != null && rayHit.distance < GROUND_CHECK_DISTANCE;
-
-        if (isGrounded)
+        if (pRig2D.linearVelocityY < 0)
         {
-            pAnimator.SetBool("Jump", false);
-        }
-        else
-        {
-            //떨어지고 있다
-            if (!isWall)
+            if (rayHit.collider != null)
             {
-                //그냥 떨어지는중
-                pAnimator.SetBool("Jump", true);
+                if (rayHit.distance < 0.7f)
+                {
+                    pAnimator.SetBool("Jump", false);
+                }
             }
             else
             {
-                //벽타기
-                pAnimator.SetBool("Grab", true);
+                //떨어지고 있다
+                if (!isWall)
+                {
+                    //그냥 떨어지는중
+                    pAnimator.SetBool("Jump", true);
+                }
+                else
+                {
+                    //벽타기
+                    pAnimator.SetBool("Grab", true);
+                }
             }
         }
-
+        else
+        {
+            if (rayHit.collider != null)
+            {
+                if (rayHit.distance < 0.7f)
+                {
+                    pAnimator.SetBool("Jump", false);
+                }
+            }
+            else
+            {
+                //떨어지고 있다
+                if (!isWall)
+                {
+                    //그냥 떨어지는중
+                    pAnimator.SetBool("Jump", true);
+                }
+                else
+                {
+                    //벽타기
+                    pAnimator.SetBool("Grab", true);
+                }
+            }
+        }
     }
+
 
     public void Jump()
     {
@@ -213,6 +243,10 @@ public class Player : MonoBehaviour
 
         pRig2D.AddForce(new Vector2(0, jumpUp), ForceMode2D.Impulse);
     }
+
+
+
+
 
     public void Move()
     {
@@ -258,10 +292,7 @@ public class Player : MonoBehaviour
     //흙먼지
     public void RandDust(GameObject dust)
     {
-
         Instantiate(dust, transform.position + new Vector3(-0.114f, -0.467f, 0), Quaternion.identity);
-
-
     }
 
     //점프먼지
@@ -289,7 +320,14 @@ public class Player : MonoBehaviour
         Gizmos.DrawRay(wallChk.position, Vector2.right * isRight * wallchkDistance);
     }
 
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //보스 씬 진입 포탈과 충돌 체크
+        if(other.CompareTag("BossScene"))
+        {
+            SceneManager.LoadScene("Boss");
+        }
+    }
 
 
 }
